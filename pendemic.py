@@ -19,6 +19,90 @@ city_data = [
     ("Jakarta", "red"), ("Sydney", "red")
 ]
 
+connections = [
+    ("San Francisco", "Tokyo"), ("San Francisco", "Manila"), 
+    ("San Francisco", "Los Angeles"), ("San Francisco", "Chicago"),
+    ("Chicago", "San Francisco"), ("Chicago", "Los Angeles"),
+    ("Chicago", "Mexico City"), ("Chicago", "Atlanta"), 
+    ("Chicago", "Montreal"), 
+    ("Los Angeles", "Sydney"), ("Los Angeles", "Chicago"), 
+    ("Los Angeles", "Mexico City"), ("Los Angeles", "San Francisco"),
+    ("Mexico City", "Miami"), ("Mexico City", "Bogota"),
+    ("Mexico City", "Lima"), ("Mexico City", "Los Angeles"),
+    ("Mexico City", "Chicago"),
+    ("Miami", "Washington"), ("Miami", "Bogota"), 
+    ("Miami", "Mexico City"), ("Miami", "Atlanta"),
+    ("Bogota", "Miami"), ("Bogota", "Mexico City"), 
+    ("Bogota", "Lima"), ("Bogota", "Sao Paulo"), ("Bogota", "Buenos Aires"),
+    ("Lima", "Mexico City"), ("Lima", "Bogota"), ("Lima", "Santiago"),
+    ("Santiago", "Lima"),
+    ("Buenos Aires", "Bogota"), ("Buenos Aires", "Sao Paulo"),
+    ("Sao Paulo", "Bogota"), ("Sao Paulo", "Buenos Aires"), 
+    ("Sao Paulo", "Madrid"), ("Sao Paulo", "Lagos"),
+    ("Lagos", "Sao Paulo"), ("Lagos", "Khartoum"), ("Lagos", "Kinshasa"),
+    ("Kinshasa", "Lagos"), ("Kinshasa", "Khartoum"), ("Kinshasa", "Johannesburg"),
+    ("Khartoum", "Cairo"), ("Khartoum", "Lagos"), ("Khartoum", "Kinshasa"), 
+    ("Khartoum", "Johannesburg"),
+    ("Johannesburg", "Kinshasa"), ("Johannesburg", "Khartoum"),
+    ("Montreal", "Chicago"), ("Montreal", "Washington"), ("Montreal", "New York"),
+    ("Washington", "Montreal"), ("Washington", "New York"), 
+    ("Washington", "Atlanta"), ("Washington", "Miami"),
+    ("New York", "Montreal"), ("New York", "Washington"), 
+    ("New York", "London"), ("New York", "Madrid"),
+    ("Atlanta", "Chicago"), ("Atlanta", "Washington"), ("Atlanta", "Miami"),
+    ("London", "New York"), ("London", "Madrid"), ("London", "Essen"), ("London", "Paris"),
+    ("Madrid", "New York"), ("Madrid", "London"), ("Madrid", "Paris"), 
+    ("Madrid", "Algiers"), ("Madrid", "Sao Paulo"),
+    ("Essen", "London"), ("Essen", "Paris"), ("Essen", "Milan"), ("Essen", "St. Petersburg"),
+    ("Paris", "London"), ("Paris", "Essen"), ("Paris", "Milan"), 
+    ("Paris", "Algiers"), ("Paris", "Madrid"),
+    ("Milan", "Essen"), ("Milan", "Paris"), ("Milan", "Istanbul"),
+    ("St. Petersburg", "Essen"), ("St. Petersburg", "Istanbul"), 
+    ("St. Petersburg", "Moscow"),
+    ("Algiers", "Madrid"), ("Algiers", "Paris"), ("Algiers", "Istanbul"), ("Algiers", "Cairo"),
+    ("Istanbul", "Milan"), ("Istanbul", "St. Petersburg"), 
+    ("Istanbul", "Moscow"), ("Istanbul", "Algiers"), ("Istanbul", "Cairo"), 
+    ("Istanbul", "Baghdad"),
+    ("Moscow", "St. Petersburg"), ("Moscow", "Istanbul"), ("Moscow", "Tehran"),
+    ("Cairo", "Algiers"), ("Cairo", "Istanbul"), ("Cairo", "Baghdad"), 
+    ("Cairo", "Riyadh"), ("Cairo", "Khartoum"),
+    ("Baghdad", "Istanbul"), ("Baghdad", "Cairo"), ("Baghdad", "Riyadh"), 
+    ("Baghdad", "Karachi"), ("Baghdad", "Tehran"),
+    ("Tehran", "Moscow"), ("Tehran", "Baghdad"), ("Tehran", "Karachi"), ("Tehran", "Delhi"),
+    ("Karachi", "Baghdad"), ("Karachi", "Tehran"), ("Karachi", "Delhi"), 
+    ("Karachi", "Mumbai"), ("Karachi", "Riyadh"),
+    ("Delhi", "Tehran"), ("Delhi", "Karachi"), ("Delhi", "Mumbai"), 
+    ("Delhi", "Chennai"), ("Delhi", "Kolkata"),
+    ("Mumbai", "Karachi"), ("Mumbai", "Delhi"), ("Mumbai", "Chennai"),
+    ("Riyadh", "Cairo"), ("Riyadh", "Baghdad"), ("Riyadh", "Karachi"),
+    ("Chennai", "Mumbai"), ("Chennai", "Delhi"), ("Chennai", "Kolkata"), 
+    ("Chennai", "Bangkok"),     ("Chennai", "Jakarta"), 
+    ("Kolkata", "Delhi"), ("Kolkata", "Bangkok"), ("Kolkata", "Hong Kong"),
+    ("Bangkok", "Kolkata"), ("Bangkok", "Chennai"), 
+    ("Bangkok", "Jakarta"), ("Bangkok", "Ho Chi Minh City"), 
+    ("Bangkok", "Hong Kong"),
+    ("Jakarta", "Chennai"), ("Jakarta", "Bangkok"), 
+    ("Jakarta", "Ho Chi Minh City"), ("Jakarta", "Sydney"),
+    ("Ho Chi Minh City", "Bangkok"), ("Ho Chi Minh City", "Jakarta"), 
+    ("Ho Chi Minh City", "Manila"), ("Ho Chi Minh City", "Hong Kong"),
+    ("Sydney", "Jakarta"), ("Sydney", "Manila"), ("Sydney", "Los Angeles"),
+    ("Manila", "Ho Chi Minh City"), ("Manila", "Sydney"), 
+    ("Manila", "San Francisco"), ("Manila", "Taipei"), ("Manila", "Hong Kong"),
+    ("Hong Kong", "Bangkok"), ("Hong Kong", "Ho Chi Minh City"), 
+    ("Hong Kong", "Manila"), ("Hong Kong", "Shanghai"), 
+    ("Hong Kong", "Taipei"), ("Hong Kong", "Kolkata"),
+    ("Taipei", "Manila"), ("Taipei", "Hong Kong"), ("Taipei", "Shanghai"), ("Taipei", "Osaka"),
+    ("Shanghai", "Beijing"), ("Shanghai", "Hong Kong"), 
+    ("Shanghai", "Taipei"), ("Shanghai", "Seoul"), ("Shanghai", "Tokyo"),
+    ("Beijing", "Shanghai"), ("Beijing", "Seoul"),
+    ("Seoul", "Beijing"), ("Seoul", "Shanghai"), ("Seoul", "Tokyo"),
+    ("Tokyo", "Seoul"), ("Tokyo", "Shanghai"), ("Tokyo", "Osaka"), 
+    ("Tokyo", "San Francisco"),
+    ("Osaka", "Tokyo"), ("Osaka", "Taipei")
+]
+
+
+
 class Card:
     def __init__(self, name):
         self.name = name
@@ -72,10 +156,11 @@ def setup():
     for city_name, color in city_data:
         cities[city_name] = City(city_name, color)
 
-    """for city1, city2 in connections:
+    for city1, city2 in connections:
         cities[city1].add_connection(cities[city2])
 
-    # Create player deck
+    """
+   # Create player deck
     player_deck = Deck()
     for city in cities.values():
         player_deck.add_card(Card(city.name))
